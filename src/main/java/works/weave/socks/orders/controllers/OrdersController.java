@@ -153,7 +153,7 @@ public class OrdersController {
 
     private float calculateTotal(List<Item> items) {
         float amount = 0F;
-        float shipping = 4.99F;
+        float shipping = config.getStandardShippingFee();
         amount += items.stream().mapToDouble(i -> i.getQuantity() * i.getUnitPrice()).sum();
         amount += shipping;
         return amount;

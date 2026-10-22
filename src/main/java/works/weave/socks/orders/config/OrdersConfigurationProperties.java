@@ -7,6 +7,7 @@ import java.net.URI;
 @ConfigurationProperties
 public class OrdersConfigurationProperties {
     private String domain = "";
+    private float standardShippingFee = 4.99F;
 
     public URI getPaymentUri() {
         return new ServiceUri(new Hostname("payment"), new Domain(domain), "/paymentAuth").toUri();
@@ -18,6 +19,14 @@ public class OrdersConfigurationProperties {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public float getStandardShippingFee() {
+        return standardShippingFee;
+    }
+
+    public void setStandardShippingFee(float standardShippingFee) {
+        this.standardShippingFee = standardShippingFee;
     }
 
     private class Hostname {
